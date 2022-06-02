@@ -30,7 +30,7 @@ async function getMeetings(req: NextApiRequest, res: NextApiResponse) {
       let meetings = await db
           .collection('meetings')
           .find({})
-          .sort({ startDatetime: -1 })
+          .sort({ startDatetime: 1 })
           .toArray();
       return res.json({
           data: JSON.parse(JSON.stringify(meetings)),
