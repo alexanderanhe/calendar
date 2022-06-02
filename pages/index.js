@@ -71,7 +71,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="pt-16">
+    <div className="pt-8">
       <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
           <div className="md:pr-14">
@@ -82,7 +82,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={handleNewMeeting}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="bg-blue-500 hover:bg-blue-700 mr-10 text-white font-bold py-2 px-4 rounded"
               >
                 New
               </button>
@@ -163,14 +163,14 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <section className="mt-12 md:mt-0 md:pl-14">
+          <section className="md:mt-0 md:pl-14">
             <h2 className="font-semibold text-gray-900">
               Schedule for{' '}
               <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                 {format(selectedDay, 'MMM dd, yyy')}
               </time>
             </h2>
-            <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
+            <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500 overflow-y-auto h-[40vh] md:h-full">
               {selectedDayMeetings.length > 0 ? (
                 selectedDayMeetings.map((meeting) => (
                   <Meeting meeting={meeting} key={meeting._id} update={getMeetings} />
@@ -212,13 +212,13 @@ function Meeting({ meeting, update }) {
 
   return (
     <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
-      <Image
+      {/* <Image
         src={meeting.imageUrl}
         alt=""
         className="flex-none w-10 h-10 rounded-full"
         width={45}
         height={45}
-      />
+      /> */}
       <div className="flex-auto">
         <p className="text-gray-900">{meeting.name}</p>
         <p className="mt-0.5">
@@ -233,7 +233,7 @@ function Meeting({ meeting, update }) {
       </div>
       <Menu
         as="div"
-        className="relative opacity-0 focus-within:opacity-100 group-hover:opacity-100"
+        className="relative opacity-50 focus-within:opacity-100 group-hover:opacity-100"
       >
         <div>
           <Menu.Button className="-m-2 flex items-center rounded-full p-1.5 text-gray-500 hover:text-gray-600">
@@ -252,7 +252,7 @@ function Meeting({ meeting, update }) {
           leaveTo="transform opacity-0 scale-95"
         >
           <Menu.Items className="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-lg w-36 ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="py-1">
+            <div className="py-1 z-10">
               {/* <Menu.Item>
                 {({ active }) => (
                   <a
