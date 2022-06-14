@@ -121,7 +121,7 @@ export default function Messages() {
                       <div className="mt-3 w-full bg-slate-50 p-4 rounded-b-xl rounded-tr-xl">
                           <p className=" text-sm text-slate-500">
                               Hey all, <br/>
-                              There are many variation of passages of Lorem ipsum avaliable, but the jority have alternation in some form , by injected humor, or randomise words which don't look even slightly believable.
+                              There are many variation of passages of Lorem ipsum avaliable, but the jority have alternation in some form , by injected humor, or randomise words which dont look even slightly believable.
                           </p>
                       </div>
                   </div>
