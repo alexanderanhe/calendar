@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/new.js"  ],
+, "pages/new.js", "components/Modal/index.js", "lib/functions.js"  ],
   "exclude": [
     "node_modules"
   ]

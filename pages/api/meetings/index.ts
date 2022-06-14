@@ -50,6 +50,7 @@ async function addMeeting(req: NextApiRequest, res: NextApiResponse) {
   try {
       let { db } = await connectToDatabase();
       const newItem = JSON.parse(req.body);
+
       await db.collection('meetings').insertOne({
         ...newItem,
         active: true
@@ -71,12 +72,15 @@ async function addMeeting(req: NextApiRequest, res: NextApiResponse) {
 async function updateMeeting(req: NextApiRequest, res: NextApiResponse) {
   try {
       let { db } = await connectToDatabase();
+      const updateItem = JSON.parse(req.body);
+      const itemId = updateItem._id;
+      delete updateItem._id;
 
       await db.collection('meetings').updateOne(
           {
-              _id: new ObjectId(req.body),
+              _id: new ObjectId(itemId),
           },
-          { $set: { active: false } }
+          { $set: updateItem }
       );
 
       return res.json({
