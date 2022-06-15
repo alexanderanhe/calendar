@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { DEFAULT_MEETING } from '../../lib/functions';
+import { icons, DEFAULT_MEETING } from '../../lib/functions';
 
 export default function ModalEditMeeting({ meeting, show, setShow, update }) {
   const [ form, setForm ] = useState(DEFAULT_MEETING);
@@ -88,15 +88,11 @@ export default function ModalEditMeeting({ meeting, show, setShow, update }) {
                                 defaultValue={meeting?.label}
                               >
                                 <option hidden value="">Category</option>
-                                <option value="task">
-                                  Task
-                                </option>
-                                <option value="academic">
-                                  Academic
-                                </option>
-                                <option value="entertainment">
-                                  Entertainment
-                                </option>
+                                { Object.keys(icons).sort().filter((item) => item !== 'none').map((label) => (
+                                  <option key={label} value={label}>
+                                    {label}
+                                  </option>
+                                ))}
                               </select>
                               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>

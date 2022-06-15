@@ -14,6 +14,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
+  backdrop-filter: blur(8px);
 }
 .loader__spinner {
   display: inline-block;

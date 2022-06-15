@@ -64,6 +64,7 @@ export default function Calendar() {
 
   let selectedDayMeetings = meetings.filter((meeting) =>
     isSameDay(parseISO(meeting.startDatetime), selectedDay)
+    || isSameDay(parseISO(meeting.endDatetime), selectedDay)
   )
 
   const handleNewMeeting = (e) => {
@@ -182,6 +183,7 @@ export default function Calendar() {
                         <div className="w-1 h-1 mx-auto mt-1">
                           {meetings.some((meeting) =>
                             isSameDay(parseISO(meeting.startDatetime), day)
+                            || isSameDay(parseISO(meeting.endDatetime), day)
                           ) && (
                             <div className="w-1 h-1 rounded-full bg-sky-500"></div>
                           )}
